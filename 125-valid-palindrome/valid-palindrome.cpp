@@ -3,11 +3,13 @@ public:
     bool isPalindrome(string s) {
         int front = 0 , back = s.size()-1;
         while(front < back){
-            while(front < back && !isalnum(s[front])){
+            if(!isalnum(s[front])){
                 front++;
+                continue;
             }
-            while(front < back && !isalnum(s[back])){
+            if(!isalnum(s[back])){
                 back--;
+                continue;
             }
             if(tolower(s[front]) != tolower(s[back])){
                 return false;
